@@ -35,7 +35,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "jsreport-pdfjs": "0.4.1",
+    "jsreport-pdfjs": "0.4.2",
     "node-signpdf": "0.3.0"
   },
   "devDependencies": {
