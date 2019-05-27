@@ -65,8 +65,12 @@ class Properties extends Component {
           />
         </div>
         <div className='form-group'>
+          <label>Reason filled to pdf</label>
+          <input type='text' placeholder='signed...' value={pdfSign.reason} onChange={(v) => changePdfSign({ reason: v.target.value })} />
+        </div>
+        <div className='form-group'>
           <label>Enabled</label>
-          <input type='checkbox' checked={entity.enabled !== false} onChange={(v) => changePdfSign({ enabled: v.target.checked })} />
+          <input type='checkbox' checked={pdfSign.enabled !== false} onChange={(v) => changePdfSign({ enabled: v.target.checked })} />
         </div>
       </div>
     )

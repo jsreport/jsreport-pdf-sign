@@ -1,5 +1,5 @@
 module.exports = {
   'name': 'pdf-sign',
-  'dependencies': ['templates'],
+  'dependencies': ['templates', 'assets'],
   'main': 'lib/main.js'
 }

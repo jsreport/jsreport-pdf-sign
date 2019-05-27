@@ -17,7 +17,7 @@
     "email": "jan.blaha@hotmail.com"
   },
   "scripts": {
-    "start": "set extensions_pdfSign_secret=foo&&jsreport-studio-start --httpPort 5488",
+    "start": "set extensions_pdfSign_secret=ExchangePasswordPasswordExchange&&jsreport-studio-start --httpPort 3000",
     "test": "mocha test --timeout 8000 && standard",
     "build": "jsreport-studio-build",
     "prepublishOnly": "jsreport-studio-build"

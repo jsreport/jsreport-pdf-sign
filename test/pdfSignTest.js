@@ -43,7 +43,7 @@ describe('pdf-sign', () => {
     signedData.should.be.instanceOf(Buffer)
   })
 
-  it.only('should be able to reference stored asset', async () => {
+  it('should be able to reference stored asset', async () => {
     await reporter.documentStore.collection('assets').insert({
       name: 'certificate.p12',
       shortid: 'certificate',

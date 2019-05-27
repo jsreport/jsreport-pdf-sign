@@ -1,24 +1,11 @@
-#jsreport-html-to-text
+#jsreport-pdf-sign
 
-jsreport recipe transforming html to text using node package [html-to-text](https://github.com/werk85/node-html-to-text). See the docs http://jsreport.net/learn/html-to-text 
+[![NPM Version](http://img.shields.io/npm/v/jsreport-pdf-sign.svg?style=flat-square)](https://npmjs.com/package/jsreport-pdf-sign)
+[![Build Status](https://travis-ci.org/jsreport/jsreport-pdf-sign.png?branch=master)](https://travis-ci.org/jsreport/jsreport-pdf-sign)
+
+jsreport extension for signing output pdf with a certificate.
+See the docs http://jsreport.net/learn/pdf-sign 
 
 ##Installation
 
-> **npm install jsreport-html-to-text**
-
-##Usage
-To use `recipe` in for template rendering set `template.recipe=html-to-text` in the rendering request.
-
-```js
-{
-  template: { content: '...', recipe: 'html-to-text', engine: '...' }
-}
-```
-
-##jsreport-core
-You can apply this extension also manually to [jsreport-core](https://github.com/jsreport/jsreport-core)
-
-```js
-var jsreport = require('jsreport-core')()
-jsreport.use(require('jsreport-html-to-text')())
-```
+> **npm install jsreport-pdf-sign**

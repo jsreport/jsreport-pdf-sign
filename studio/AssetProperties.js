@@ -16,11 +16,17 @@ class Properties extends Component {
 
     const changePdfSign = (change) => onChange({ ...entity, pdfSign: { ...entity.pdfSign, ...change } })
 
+    let password = pdfSign.passwordRaw
+
+    if (password == null) {
+      password = pdfSign.passwordFilled === true ? '******' : ''
+    }
+
     return (
       <div className='properties-section'>
         <div className='form-group'><label>password</label>
           <input
-            type='password' value={pdfSign.passwordRaw || '*******'}
+            type='password' value={password}
             onChange={(v) => changePdfSign({ passwordRaw: v.target.value })} />
         </div>
       </div>
