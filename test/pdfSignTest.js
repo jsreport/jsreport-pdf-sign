@@ -13,7 +13,7 @@ describe('pdf-sign', () => {
         strategy: 'in-process'
       }
     }).use(require('../')({
-      secret: 'ExchangePasswordPasswordExchange'
+      secret: '1111111811111118'
     }))
       .use(require('jsreport-templates')())
       .use(require('jsreport-chrome-pdf')())
@@ -102,5 +102,26 @@ describe('pdf-sign', () => {
     should(entity.pdfSign.passwordRaw).be.null()
     entity.pdfSign.passwordSecure.should.not.be.eql('foo')
     entity.pdfSign.passwordFilled.should.be.true()
+  })
+
+  it('should use asset encoding when inline in the request', async () => {
+    const result = await reporter.render({
+      template: {
+        content: 'Hello',
+        engine: 'none',
+        recipe: 'chrome-pdf',
+        pdfSign: {
+          certificateAsset: {
+            content: fs.readFileSync(path.join(__dirname, 'certificate.p12')).toString('base64'),
+            encoding: 'base64'
+          },
+          password: 'node-signpdf'
+        }
+      }
+    })
+
+    const { signature, signedData } = extractSignature(result.content)
+    signature.should.be.of.type('string')
+    signedData.should.be.instanceOf(Buffer)
   })
 })
