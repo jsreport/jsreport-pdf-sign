@@ -81,7 +81,7 @@ describe('pdf-sign', () => {
     })
 
     should(res.pdfSign.passwordRaw).be.null()
-    res.pdfSign.password.should.not.be.eql('foo')
+    res.pdfSign.passwordSecure.should.not.be.eql('foo')
     res.pdfSign.passwordFilled.should.be.true()
   })
 
@@ -100,7 +100,7 @@ describe('pdf-sign', () => {
 
     const entity = await reporter.documentStore.collection('assets').findOne({})
     should(entity.pdfSign.passwordRaw).be.null()
-    entity.pdfSign.password.should.not.be.eql('foo')
+    entity.pdfSign.passwordSecure.should.not.be.eql('foo')
     entity.pdfSign.passwordFilled.should.be.true()
   })
 })
