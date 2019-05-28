@@ -28,7 +28,10 @@ class Properties extends Component {
     if (updatedAssetItems.length === 0 && entity.pdfSign.certificateAssetShortid) {
       onChange({
         _id: entity._id,
-        pdfSign: null
+        pdfSign: {
+          ...entity.pdfSign,
+          certificateAssetShortid: null
+        }
       })
     }
   }
@@ -57,6 +60,7 @@ class Properties extends Component {
     return (
       <div className='properties-section'>
         <div className='form-group'>
+          <label>Select certificate</label>
           <EntityRefSelect
             headingLabel='Select certificate'
             value={pdfSign.certificateAssetShortid || ''}

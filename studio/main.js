@@ -208,7 +208,9 @@ var Properties = function (_Component) {
       if (updatedAssetItems.length === 0 && entity.pdfSign.certificateAssetShortid) {
         onChange({
           _id: entity._id,
-          pdfSign: null
+          pdfSign: _extends({}, entity.pdfSign, {
+            certificateAssetShortid: null
+          })
         });
       }
     }
@@ -232,6 +234,11 @@ var Properties = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'form-group' },
+          _react2.default.createElement(
+            'label',
+            null,
+            'Select certificate'
+          ),
           _react2.default.createElement(EntityRefSelect, {
             headingLabel: 'Select certificate',
             value: pdfSign.certificateAssetShortid || '',

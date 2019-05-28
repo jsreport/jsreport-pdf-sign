@@ -31,9 +31,9 @@ describe('pdf-sign', () => {
         recipe: 'chrome-pdf',
         pdfSign: {
           certificateAsset: {
-            content: fs.readFileSync(path.join(__dirname, 'certificate.p12'))
-          },
-          password: 'node-signpdf'
+            content: fs.readFileSync(path.join(__dirname, 'certificate.p12')),
+            password: 'node-signpdf'
+          }
         }
       }
     })
@@ -113,9 +113,9 @@ describe('pdf-sign', () => {
         pdfSign: {
           certificateAsset: {
             content: fs.readFileSync(path.join(__dirname, 'certificate.p12')).toString('base64'),
-            encoding: 'base64'
-          },
-          password: 'node-signpdf'
+            encoding: 'base64',
+            password: 'node-signpdf'
+          }
         }
       }
     })
