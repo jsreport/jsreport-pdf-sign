@@ -124,4 +124,20 @@ describe('pdf-sign', () => {
     signature.should.be.of.type('string')
     signedData.should.be.instanceOf(Buffer)
   })
+
+  it('should not fail for none pdf recipe', async () => {
+    await reporter.render({
+      template: {
+        content: 'Hello',
+        engine: 'none',
+        recipe: 'html',
+        pdfSign: {
+          certificateAsset: {
+            content: fs.readFileSync(path.join(__dirname, 'certificate.p12')),
+            password: 'node-signpdf'
+          }
+        }
+      }
+    })
+  })
 })
