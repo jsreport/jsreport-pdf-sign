@@ -10,9 +10,11 @@ Studio.addApiSpec({
     pdfSign: {
       certificateAsset: {
         encoding: '...',
-        content: '...'
+        content: '...',
+        password: '...'
       },
-      certificateAssetShortid: '...'
+      certificateAssetShortid: '...',
+      enabled: true
     }
   }
 })

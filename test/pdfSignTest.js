@@ -9,12 +9,13 @@ describe('pdf-sign', () => {
 
   beforeEach(() => {
     reporter = jsreport({
+      encryption: {
+        secretKey: '1111111811111118'
+      },
       templatingEngines: {
         strategy: 'in-process'
       }
-    }).use(require('../')({
-      secret: '1111111811111118'
-    }))
+    }).use(require('../')())
       .use(require('jsreport-templates')())
       .use(require('jsreport-chrome-pdf')())
       .use(require('jsreport-assets')())
@@ -87,7 +88,9 @@ describe('pdf-sign', () => {
 
   it('should crypt password before update', async () => {
     await reporter.documentStore.collection('assets').insert({
-      name: 'a'
+      name: 'a',
+      engine: 'none',
+      recipe: 'html'
     })
 
     await reporter.documentStore.collection('assets').update({ name: 'a' }, {
@@ -98,7 +101,10 @@ describe('pdf-sign', () => {
       }
     })
 
-    const entity = await reporter.documentStore.collection('assets').findOne({})
+    const entity = await reporter.documentStore.collection('assets').findOne({
+      name: 'a'
+    })
+
     should(entity.pdfSign.passwordRaw).be.null()
     entity.pdfSign.passwordSecure.should.not.be.eql('foo')
     entity.pdfSign.passwordFilled.should.be.true()

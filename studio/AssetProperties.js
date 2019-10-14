@@ -18,7 +18,7 @@ class Properties extends Component {
 
     let password = pdfSign.passwordRaw
 
-    if (password == null) {
+    if (password == null || password === '') {
       password = pdfSign.passwordFilled === true ? '******' : ''
     }
 
