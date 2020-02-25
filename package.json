@@ -1,6 +1,6 @@
 {
   "name": "jsreport-pdf-sign",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "jsreport extension adding pdf signing support",
   "main": "index.js",
   "keywords": [
